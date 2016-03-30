@@ -13,12 +13,6 @@ public class Part1 {
 
     private final String ENCODING;
 
-    public Part1(String fileName, String encoding) {
-        this.FILE_NAME = fileName;
-        this.ENCODING = encoding;
-
-    }
-
     public Part1() {
         this.FILE_NAME = "part1.txt";
         this.ENCODING = "Cp1251";

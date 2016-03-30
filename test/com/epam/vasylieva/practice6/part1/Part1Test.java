@@ -8,7 +8,7 @@ import org.junit.Test;
 public class Part1Test {
 
 	@Test
-	public void test() {
+	public void convertTest() {
 		Part1 p = new Part1();
 		String actual = p.convert("в огромном городе моем - ночь.\n" +
 				"из дома сонного иду - прочь.\n" +

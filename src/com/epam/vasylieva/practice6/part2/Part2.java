@@ -23,8 +23,8 @@ public class Part2 {
 	public static void main(String[] args) {
 		Part2 p = new Part2();
 		p.create(p.createContent(), FILE_NAME);
-		System.out.println("input ==> "+p.read());
-		String sorted = p.sort(p.read());
+		System.out.println("input ==> "+p.read(FILE_NAME));
+		String sorted = p.sort(p.read(FILE_NAME));
 		p.create(sorted, FILE_NAME2);
 		System.out.println("output ==> "+sorted);
 	}
@@ -49,16 +49,16 @@ public class Part2 {
 
 	public String createContent(){
 		StringBuilder sb = new StringBuilder();
-		for(int i = 0; i<10; i++){
-			sb.append((int)(Math.random() * 51)).append(" ");
+		for(int i = 0; i<N; i++){
+			sb.append((int)(Math.random() * (MAX+1))).append(" ");
 		}
 		return sb.toString();
 	}
 
-	public String read(){
+	public String read(String fileName){
 		String s = "";
 		try {
-			s = new String(Files.readAllBytes(Paths.get("src/resources/"+FILE_NAME)), StandardCharsets.UTF_8);
+			s = new String(Files.readAllBytes(Paths.get("src/resources/"+fileName)), StandardCharsets.UTF_8);
 		} catch (IOException e) {
 			System.out.println("Some problems with file reading:" + e.getMessage());
 		}
