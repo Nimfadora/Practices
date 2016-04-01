@@ -1,6 +1,7 @@
 package com.epam.vasylieva.practice6.part4;
 
 import java.io.IOException;
+import java.nio.channels.Pipe;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -18,6 +19,7 @@ class Parser implements Iterable<String> {
 		String text = read();
 		Pattern p = Pattern.compile("([A-ZА-Я](.|\n)*?\\.)", Pattern.MULTILINE);
 		Matcher m = p.matcher(text);
+		int current = 0;
 
 		@Override
 		public boolean hasNext() {
@@ -25,8 +27,9 @@ class Parser implements Iterable<String> {
 		}
 		@Override
 		public String next() {
-			if( m.find(m.start())) {
-				return m.group().replace('\n',' ');
+			if ( m.find(current)) {
+				current +=m.group().length();
+				return m.group().replace('\n', ' ');
 			}
 			throw new NoSuchElementException();
 		}

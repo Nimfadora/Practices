@@ -19,7 +19,7 @@ public class NumberConverter {
     public static int roman2Decimal(String s) {
         StringBuilder romanNumber = new StringBuilder(s);
         int decimalNumber = 0;
-        while (romanNumber.length()>0) {
+        while (romanNumber.length() > 0) {
             for (int i = roman.length - 2; i >= -1; i -= 2) {
                 if (i > 0 && romanNumber.length() >= roman[i].length() && roman[i].equals(romanNumber.substring(0, roman[i].length()))) {
                     decimalNumber += decimal[i];
@@ -38,6 +38,12 @@ public class NumberConverter {
 
 
     public static void main(String[] args) {
-        System.out.println(roman2Decimal(decimal2Roman(4)));
+        for (int i = 1; i < 100; i += 1) {
+            String roman = decimal2Roman(i);
+            System.out.print(roman + " ==> ");
+            int decimal = roman2Decimal(roman);
+            System.out.print(decimal + " ==> ");
+            System.out.println(decimal2Roman(decimal));
+        }
     }
 }

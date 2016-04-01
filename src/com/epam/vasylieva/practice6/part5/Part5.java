@@ -25,7 +25,7 @@ public class Part5 {
         for(String[] el : pairs){
             try {
                 String res = p.readKey(el[0], el[1]);
-                System.out.println(res);
+                System.out.print(res+" ");
             }catch (RuntimeException e){
                 System.out.println("Sorry, type is invalid.");
             }

@@ -8,7 +8,7 @@ public class Part4Test {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		Part4.main(new String[]{});
 	}
 
 }
